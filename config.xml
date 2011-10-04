@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
-	id		= "com.phonegap.getting.started"
+	id		= "com.LDS.New.App"
 	version 	= "1.0.0">
 
-	<name>CHOD App</name>
+	<name>LDS App</name>
 
 	<description>
-		ChadGAp
+		LDS App
 	</description>
 
-	<author href="http://alunny.github.com"
-		email="andrew.lunny@nitobi.com">
-		Andrew Lunny
+	<author href="http://www.ldssystems.co.uk"
+		email="chad.lowe@ldssystems.co.uk">
+		Chad lowe
 	</author>
 
 	<gap:platforms>
