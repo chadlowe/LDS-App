@@ -1,198 +1,79 @@
+function chadsclick(b,e){
+  geo();
+}
+
+
+
+var textbox = new Ext.form.Text({
+  label: 'Edit',
+  ui:'dark'
+});
+
+var checkbox = new Ext.form.Checkbox({
+  label: 'Checky 1'
+});
+var radioone = new Ext.form.Radio({
+  label: 'Radio 1',
+  name: 'radgrp'
+});
+var radiotwo = new Ext.form.Radio({
+  label: 'radio 2',
+  name: 'radgrp'
+});
+
+var button = new Ext.Button({
+  text: 'New button',
+  width: '200',
+  handler: chadsclick,
+  centered: true
+  
+});
+
+var spinner = new Ext.form.Spinner({
+    minValue: 0,
+    maxValue: 100,
+    incrementValue: 2,
+    cycle: true
+}); 
+
 Ext.setup({
     tabletStartupScreen: 'tablet_startup.png',
     phoneStartupScreen: 'phone_startup.png',
     icon: 'icon.png',
     glossOnIcon: false,
+
+
+
     onReady : function() {
-        Ext.regModel('Contact', {
-            fields: ['firstName', 'lastName']
-        });
-
-        var groupingBase = {
-            itemTpl: '<div class="contact2"><strong>{firstName}</strong> {lastName}</div>',
-            selModel: {
-                mode: 'SINGLE',
-                allowDeselect: true
-            },
-            grouped: true,
-            indexBar: false,
-
-            onItemDisclosure: {
-                scope: 'test',
-                handler: function(record, btn, index) {
-                    alert('Disclose more info for ' + record.get('firstName'));
-                }
-            },
-
-            store: new Ext.data.Store({
-                model: 'Contact',
-                sorters: 'firstName',
-
-                getGroupString : function(record) {
-                    return record.get('firstName')[0];
-                },
-
-                data: [
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Ape', lastName: 'Evilias'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Ape', lastName: 'Evilias'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Ape', lastName: 'Evilias'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Ape', lastName: 'Evilias'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Tommy', lastName: 'Maintz'},
-                    {firstName: 'Ed', lastName: 'Spencer'},
-                    {firstName: 'Jamie', lastName: 'Avins'},
-                    {firstName: 'Aaron', lastName: 'Conran'},
-                    {firstName: 'Dave', lastName: 'Kaneda'},
-                    {firstName: 'Michael', lastName: 'Mullany'},
-                    {firstName: 'Abraham', lastName: 'Elias'},
-                    {firstName: 'Jay', lastName: 'Robinson'},
-                    {firstName: 'Zed', lastName: 'Zacharias'}
-                ]
-            })
-        };
-
-
-        if (!Ext.is.Phone) {
-            new Ext.List(Ext.apply(groupingBase, {
-                floating: true,
-                width: 350,
-                height: 370,
-                centered: true,
-                modal: true,
-                hideOnMaskTap: false
-            })).show();
-        }
-        else {
-            new Ext.List(Ext.apply(groupingBase, {
-                fullscreen: true
-            }));
-        }
+      var panel = new Ext.TabPanel({
+          fullscreen: true,
+          ui   : 'light',
+          
+          items: [
+              {
+                  title: 'maxTime 1',
+                  items: [ textbox,button,checkbox ]
+              },
+              {
+                  title: 'maxTime 2',
+                  items: [ spinner, radioone,radiotwo ]
+              }
+          ]
+      });
     }
+    
+    
+    
+    
+    
+    
+    
 });
 
 
 function geo(){
   var suc = function(p) {
-    document.getElementById("location").innerHTML = p.coords.latitude + " " + p.coords.longitude;
+    textbox.setValue( p.coords.latitude + " " + p.coords.longitude);
   };
   var locFail = function() {
     document.getElementById("location").innerHTML = "So sorry but your gps isnt on";
@@ -211,7 +92,7 @@ function clockin(){
     } else {
       time = hours + ':' + minutes +' PM'
     }
-    
+
     document.getElementById("ClockedIn").innerHTML =  'You have clocked in at: <br>' + time + "<br><br>Your location:<br>" + p.coords.latitude + "<br>" + p.coords.longitude;
   };
   var locFail = function() {
