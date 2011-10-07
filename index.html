@@ -34,6 +34,8 @@
     function gotFS(fileSystem) {
         alert('3a');
         fileSystem.root.getFile("LDS.txt", null, gotFileEntry, fail);
+        alert( fileSystem.name );
+        alert( fileSystem.root.name );
         alert('3');
     }
 
