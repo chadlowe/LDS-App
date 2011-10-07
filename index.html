@@ -44,7 +44,7 @@
       alert('gandbcreated');
       var dbShell = window.openDatabase('DEMODB', '1.0', 'PHoneGapDemo', 200000);      
       alert('dbcreated');
-      db.transaction(populateDB, errorCB, successCB);
+      dbShell.transaction(populateDB, errorCB, successCB);
       alert('transactiond');
     }
     
