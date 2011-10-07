@@ -86,15 +86,15 @@
     }
     function gotSaveFS(fileSystem) {
         alert('3a');
-        fileSystem.root.getFile("LDS.txt", null, gotFileEntry, fail);
+        fileSystem.root.getFile("LDS.txt", null, gotFileSaveEntry(), fail);
         alert('3');
     }
     function gotFileSaveEntry(fileEntry) {
         alert('4a');
-        fileEntry.createWriter(gotFileWriter, fail);
+        fileEntry.createWriter(gotFileSaveWriter(), fail);
         alert('4');
     }
-    function gotFileWriter(writer) {
+    function gotFileSaveWriter(writer) {
         writer.onwrite = function(evt) {
             console.log("write success");
         };
