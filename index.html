@@ -41,6 +41,7 @@
     }
     
     function writedatabase(){
+      alert('gandbcreated');
       var dbShell = window.openDatabase(name, version, display_name, size);      
       alert('dbcreated');
       db.transaction(populateDB, errorCB, successCB);
