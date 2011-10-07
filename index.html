@@ -3,6 +3,7 @@
 	<head>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
 		<title>Chad App</title>
+    <script src="phonegap.js" type="text/javascript" charset="utf-8"></script> 
 
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.css" />
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
@@ -10,7 +11,77 @@
     <script type="text/javascript" charset="utf-8" src="assets/js/main.js"></script>
     
     <link rel="stylesheet" type="text/css" href="assets/css/master.css">
-    <script src="phonegap.js" type="text/javascript" charset="utf-8"></script> 
+
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for PhoneGap to load
+    //
+    
+    function onLoad() {
+        alert('1a');
+        document.addEventListener("deviceready", onDeviceReady, false);
+        alert('1');
+    }
+
+    // PhoneGap is ready
+    //
+    function onDeviceReady() {
+        alert('2a');
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+        alert('2');
+    }
+
+    function gotFS(fileSystem) {
+        alert('3a');
+        fileSystem.root.getFile("LDS.txt", null, gotFileEntry, fail);
+        alert('3');
+    }
+
+    function gotFileEntry(fileEntry) {
+        alert('4a');
+        fileEntry.file(gotFile, fail);
+        alert('4');
+    }
+
+    function gotFile(file){
+        alert('5a');
+        readDataUrl(file);
+        readAsText(file);
+        alert('5');
+    }
+
+    function readDataUrl(file) {
+        alert('6a');
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as data URL");
+            console.log(evt.target.result);
+        };
+        reader.readAsDataURL(file);
+        alert('6');
+    }
+
+    function readAsText(file) {
+        alert('7a');
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as text");
+            console.log(evt.target.result);
+        };
+        reader.readAsText(file);
+        alert('7');
+    }
+
+    function fail(evt) {
+        alert('8a');
+        console.log(evt.target.error.code);
+        alert('8');
+    }
+
+    onLoad();
+    
+    </script>
+
 	</head>
 	<body>
     <div data-role="header">
