@@ -33,6 +33,11 @@
     }
 
     function errorCB(err) {
+        var output = '';
+        for (property in err) {
+          output += property + ': ' + object[property]+'; ';
+        }
+        alert(output);
         alert("Error processing SQL: "+err);
     }
 
