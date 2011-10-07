@@ -16,11 +16,42 @@
 
     // Wait for PhoneGap to load
     //
+    function querySuccess(tx, results) {
+        alert("Insert ID = " + results.insertId);
+        alert("Rows Affected = " + results.rowAffected);
+        alert("Insert ID = " + results.rows.length);
+    }
+
+    function populateDB(tx) {
+      alert('execue');
+         tx.executeSql('DROP TABLE IF EXISTS DEMO');
+         tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
+         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+         tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);         
+      alert('execu done');
+    }
+
+    function errorCB(err) {
+        alert("Error processing SQL: "+err.code);
+    }
+
+    function successCB() {
+        alert("success!");
+    }
+    
+    function writedatabase(){
+      var dbShell = window.openDatabase(name, version, display_name, size);      
+      alert('dbcreated');
+      db.transaction(populateDB, errorCB, successCB);
+      alert('transactiond');
+    }
     
     function onLoad() {
         alert('1a');
         document.addEventListener("deviceready", onDeviceReady, false);
         alert('1');
+        writedatabase();
     }
 
     // PhoneGap is ready
