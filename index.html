@@ -96,9 +96,6 @@
     }
     function gotFileSaveWriter(writer) {
         alert('writera');
-        writer.onwrite = function(evt) {
-            console.log("write success");
-        };
         alert('beforewrite');
         writer.write( "asdasd" );
         alert('writenasda');
