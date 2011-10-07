@@ -99,6 +99,7 @@
         writer.onwrite = function(evt) {
             console.log("write success");
         };
+        alert('beforewrite');
         writer.write( "asdasd" );
         alert('writenasda');
         // contents of file now 'some sample text'
